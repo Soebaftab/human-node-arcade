@@ -5,10 +5,10 @@
    SUPABASE CONNECTION
    ========================================================= */
 
-const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
+const SUPABASE_URL = "https://ublxsiswduunfvjqyshq.supabase.co";
 
 const SUPABASE_PUBLISHABLE_KEY =
-  "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+  "sb_publishable_UqemFgP_47BbetLvYdBkJg_e5qA2ckp";
 
 
 const remoteEnabled =
