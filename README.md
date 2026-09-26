@@ -2,32 +2,31 @@
 
 An independent, mobile-first game platform prototype.
 
-## Included
-- Landing page
-- Human Node Rush: Genesis Edition
-- 30-second skill game
-- Human signal vs. noise mechanic
-- Score and chain system
-- Responsive layout
-- No external libraries
-- No backend required for v1
+## V1.1
+
+Human Node Arcade v1.1 expands the first prototype with:
+
+- Human Node Rush: 30-second reflex game
+- Progressive difficulty during each run
+- Chain multiplier scoring
+- Best-score tracking
+- Signal / noise / precision end-of-run stats
+- Local leaderboard stored only in the player's browser
+- Mobile-first responsive interface
+- No backend, account system, wallet, token, or external library
 
 ## Run locally
-Open `index.html` in a modern browser.
 
-For a local development server:
+Open `index.html` in a browser, or serve the folder with any simple static web server.
 
-```bash
-python -m http.server 8000
-```
+## GitHub Pages
 
-Then visit `http://localhost:8000`.
+The project is static and can be published from the repository's `main` branch using `/ (root)` as the publishing folder.
 
-## Deploy
-This is a static site. It can be deployed to GitHub Pages, Cloudflare Pages, Netlify, Vercel, or another static host.
+## Important independence note
 
-## Suggested next version
-Add a backend leaderboard, player profiles, achievements, analytics, and additional games.
+Human Node Arcade is an independent project. It is not an official InterLink product and does not represent InterLink, its team, or its policies. Game scores are game scores only and are not proof of identity, personhood, reputation, mining activity, or eligibility for any external program.
 
-## Independence
-This is an independent project and is not an official InterLink product. Do not use third-party logos, trademarks, or claims of official affiliation without permission.
+## License
+
+MIT — see `LICENSE`.
