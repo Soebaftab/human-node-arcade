@@ -618,4 +618,213 @@ async function renderRemoteBoard() {
   const {
     data,
     error
-  } =
+  } =await supabase
+  .from("leaderboard")
+  .select("name,country,score,created_at")
+  .order("score", { ascending: false })
+  .order("created_at", { ascending: true })
+  .limit(50);
+
+if (error) {
+  console.error("Worldwide leaderboard error:", error);
+
+  leaderboardStatus.textContent =
+    "Worldwide board unavailable. Showing local scores.";
+
+  renderLocalBoard();
+  return;
+}
+
+leaderboardStatus.textContent =
+  `${data.length} global score${data.length === 1 ? "" : "s"} loaded.`;
+
+if (!data.length) {
+  leaderboardList.innerHTML =
+    '<div class="empty-board">Be the first signal on the worldwide board.</div>';
+
+  return;
+}
+
+leaderboardList.innerHTML =
+  data
+    .map(
+      (row, index) =>
+        `<div class="board-row">
+          <span class="rank">#${index + 1}</span>
+          <span class="board-name">
+            ${row.country || "🌐"}
+            ${escapeHtml(row.name)}
+          </span>
+          <span class="board-date">
+            ${new Date(row.created_at).toLocaleDateString()}
+          </span>
+          <span class="board-score">
+            ${row.score}
+          </span>
+        </div>`
+    )
+    .join("");
+}
+
+
+/* =========================================================
+   SAVE WORLDWIDE SCORE
+   ========================================================= */
+
+async function save() {
+
+  const name =
+    (
+      callsign.value.trim() ||
+      "Player"
+    ).slice(0, 16);
+
+  const selectedCountry =
+    country.value || "🌐";
+
+  const rows = board();
+
+  rows.push({
+    name,
+    country: selectedCountry,
+    score,
+    ts: Date.now()
+  });
+
+  setBoard(
+    rows
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 20)
+  );
+
+  if (!supabase) {
+
+    saveScore.textContent =
+      "Saved locally";
+
+    setTimeout(
+      () => saveScore.textContent = "Save Worldwide",
+      1400
+    );
+
+    return;
+  }
+
+  if (score < 0 || score > 1000) {
+
+    say(
+      "Score outside allowed range.",
+      "bad"
+    );
+
+    return;
+  }
+
+  saveScore.disabled = true;
+  saveScore.textContent = "Saving…";
+
+  const { error } =
+    await supabase
+      .from("leaderboard")
+      .insert({
+        name,
+        country: selectedCountry,
+        score
+      });
+
+  saveScore.disabled = false;
+
+  if (error) {
+
+    console.error(
+      "Leaderboard save error:",
+      error
+    );
+
+    saveScore.textContent =
+      "Saved locally";
+
+    say(
+      "Saved locally; worldwide save failed.",
+      "bad"
+    );
+
+  } else {
+
+    saveScore.textContent =
+      "Published";
+
+    say(
+      "Your signal is on the worldwide board.",
+      "good"
+    );
+
+    await renderRemoteBoard();
+  }
+
+  setTimeout(
+    () => saveScore.textContent = "Save Worldwide",
+    1600
+  );
+}
+
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+start.addEventListener(
+  "click",
+  begin
+);
+
+again.addEventListener(
+  "click",
+  begin
+);
+
+reset.addEventListener(
+  "click",
+  resetGame
+);
+
+saveScore.addEventListener(
+  "click",
+  save
+);
+
+clearBoard.addEventListener(
+  "click",
+  () => {
+
+    if (
+      confirm(
+        "Clear all local Human Node Arcade scores on this device?"
+      )
+    ) {
+
+      localStorage.removeItem(
+        BOARD_KEY
+      );
+
+      renderRemoteBoard();
+
+      update();
+    }
+  }
+);
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+document.getElementById(
+  "year"
+).textContent =
+  new Date().getFullYear();
+
+renderRemoteBoard();
+update();
+
+})();
