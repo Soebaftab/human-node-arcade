@@ -3,62 +3,523 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Human Node Arcade — independent games inspired by human-centric networks.">
+
+  <meta
+    name="description"
+    content="Human Node Arcade — an independent game exploring human signals, networks and digital identity."
+  >
+
   <title>Human Node Arcade</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header class="site-header">
-  <a class="brand" href="#home" aria-label="Human Node Arcade home"><span class="brand-mark">H</span><span>Human Node Arcade</span></a>
-  <nav aria-label="Main navigation"><a href="#games">Games</a><a href="#leaderboard">Leaderboard</a><a href="#about">About</a></nav>
+
+  <a class="brand" href="#home" aria-label="Human Node Arcade home">
+    <span class="brand-mark">H</span>
+    <span>Human Node Arcade</span>
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="#games">Games</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#about">About</a>
+  </nav>
+
 </header>
 
+
 <main>
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
 <section id="home" class="hero">
-  <div class="eyebrow">INDEPENDENT DIGITAL PLAYGROUND</div>
-  <h1>Play the signal.<br><em>Build the network.</em></h1>
-  <p>A small game platform exploring human signals, networks and digital identity through fast, skill-based experiences.</p>
-  <div class="hero-actions"><a class="button primary" href="#games">Play Human Node Rush</a><a class="button" href="#leaderboard">View leaderboard</a></div>
-  <div class="hero-grid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="active"></span><span></span><span></span><span></span></div>
+
+  <div class="eyebrow">
+    INDEPENDENT DIGITAL PLAYGROUND
+  </div>
+
+  <h1>
+    Play the signal.<br>
+    <em>Build the network.</em>
+  </h1>
+
+  <p>
+    A small game platform exploring human signals,
+    networks and digital identity through fast,
+    skill-based experiences.
+  </p>
+
+  <div class="hero-actions">
+
+    <a class="button primary" href="#games">
+      Play Human Node Rush
+    </a>
+
+    <a class="button" href="#leaderboard">
+      View leaderboard
+    </a>
+
+  </div>
+
+  <div class="hero-grid" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  </div>
+
 </section>
+
+
+<!-- =====================================================
+     GAME
+     ===================================================== -->
 
 <section id="games" class="section">
-  <div class="section-head"><div><div class="eyebrow">GAME 01 · V1.1</div><h2>Human Node Rush</h2></div><span class="pill">30 SEC</span></div>
-  <p class="section-copy">Find the Human Signals before they disappear. Correct taps build your chain and multiplier; wrong taps break the chain and cost points.</p>
-  <div class="game-shell">
-    <div class="game-top">
-      <div><strong>HUMAN NODE RUSH</strong><small>GENESIS EDITION · SIGNAL RUN</small></div>
-      <div class="stats">
-        <span>Score <b id="score">0</b></span><span>Best <b id="best">0</b></span><span>Chain <b id="chain">0</b></span><span>Time <b id="time">30</b></span>
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="eyebrow">
+        GAME 01 · V1.2
       </div>
+
+      <h2>
+        Human Node Rush
+      </h2>
+
     </div>
-    <div class="progress"><span id="timeBar"></span></div>
-    <div id="arena" class="arena" aria-label="Game area"><div class="core"><div></div></div></div>
-    <div id="message" class="message" aria-live="polite">Press Start Network to begin.</div>
-    <div class="game-actions"><button id="start" class="button primary" type="button">Start Network</button><button id="reset" class="button" type="button">Reset</button></div>
-    <div id="result" class="result" hidden>
-      <div class="eyebrow">NETWORK COMPLETE</div>
-      <div id="finalScore" class="final-score">0</div>
-      <p id="finalText"></p>
-      <div class="result-stats"><span>Signals <b id="finalHits">0</b></span><span>Noise hits <b id="finalNoise">0</b></span><span>Precision <b id="finalPrecision">0%</b></span></div>
-      <div class="callout"><label for="callsign">Save to local leaderboard</label><div class="callout-row"><input id="callsign" maxlength="16" value="Player" autocomplete="off"><button id="saveScore" class="button primary" type="button">Save Score</button></div><small>Your leaderboard stays on this device. No account or server is used.</small></div>
-      <button id="again" class="button" type="button">Run Again</button>
-    </div>
+
+    <span class="pill">
+      30 SEC
+    </span>
+
   </div>
+
+
+  <p class="section-copy">
+    Find the Human Signals before they disappear.
+    Correct taps build your chain and multiplier;
+    wrong taps break the chain and cost points.
+  </p>
+
+
+  <div class="game-shell">
+
+    <div class="game-top">
+
+      <div>
+
+        <strong>
+          HUMAN NODE RUSH
+        </strong>
+
+        <small>
+          GENESIS EDITION · SIGNAL RUN
+        </small>
+
+      </div>
+
+
+      <div class="stats">
+
+        <span>
+          Score <b id="score">0</b>
+        </span>
+
+        <span>
+          Best <b id="best">0</b>
+        </span>
+
+        <span>
+          Chain <b id="chain">0</b>
+        </span>
+
+        <span>
+          Time <b id="time">30</b>
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="progress">
+      <span id="timeBar"></span>
+    </div>
+
+
+    <div
+      id="arena"
+      class="arena"
+      aria-label="Human Node Rush game area"
+    >
+
+      <div class="core">
+        <div></div>
+      </div>
+
+    </div>
+
+
+    <div
+      id="message"
+      class="message"
+      aria-live="polite"
+    >
+      Press Start Network to begin.
+    </div>
+
+
+    <div class="game-actions">
+
+      <button
+        id="start"
+        class="button primary"
+        type="button"
+      >
+        Start Network
+      </button>
+
+
+      <button
+        id="reset"
+        class="button"
+        type="button"
+      >
+        Reset
+      </button>
+
+    </div>
+
+
+    <!-- =================================================
+         RESULT
+         ================================================= -->
+
+    <div
+      id="result"
+      class="result"
+      hidden
+    >
+
+      <div class="eyebrow">
+        NETWORK COMPLETE
+      </div>
+
+
+      <div
+        id="finalScore"
+        class="final-score"
+      >
+        0
+      </div>
+
+
+      <p id="finalText"></p>
+
+
+      <div class="result-stats">
+
+        <span>
+          Signals
+          <b id="finalHits">0</b>
+        </span>
+
+        <span>
+          Noise hits
+          <b id="finalNoise">0</b>
+        </span>
+
+        <span>
+          Precision
+          <b id="finalPrecision">0%</b>
+        </span>
+
+      </div>
+
+
+      <!-- ===============================================
+           WORLDWIDE SCORE SUBMISSION
+           =============================================== -->
+
+      <div class="callout">
+
+        <label for="callsign">
+          Worldwide leaderboard
+        </label>
+
+
+        <div class="callout-row">
+
+          <input
+            id="callsign"
+            maxlength="16"
+            value="Player"
+            autocomplete="off"
+            placeholder="Your callsign"
+          >
+
+
+          <select
+            id="country"
+            aria-label="Country"
+          >
+
+            <option value="🇧🇩">
+              🇧🇩 Bangladesh
+            </option>
+
+            <option value="🇮🇳">
+              🇮🇳 India
+            </option>
+
+            <option value="🇵🇰">
+              🇵🇰 Pakistan
+            </option>
+
+            <option value="🇳🇵">
+              🇳🇵 Nepal
+            </option>
+
+            <option value="🇱🇰">
+              🇱🇰 Sri Lanka
+            </option>
+
+            <option value="🇨🇳">
+              🇨🇳 China
+            </option>
+
+            <option value="🇯🇵">
+              🇯🇵 Japan
+            </option>
+
+            <option value="🇰🇷">
+              🇰🇷 South Korea
+            </option>
+
+            <option value="🇸🇬">
+              🇸🇬 Singapore
+            </option>
+
+            <option value="🇺🇸">
+              🇺🇸 United States
+            </option>
+
+            <option value="🇬🇧">
+              🇬🇧 United Kingdom
+            </option>
+
+            <option value="🇨🇦">
+              🇨🇦 Canada
+            </option>
+
+            <option value="🇦🇺">
+              🇦🇺 Australia
+            </option>
+
+            <option value="🇩🇪">
+              🇩🇪 Germany
+            </option>
+
+            <option value="🇫🇷">
+              🇫🇷 France
+            </option>
+
+            <option value="🇧🇷">
+              🇧🇷 Brazil
+            </option>
+
+            <option value="🇹🇷">
+              🇹🇷 Türkiye
+            </option>
+
+            <option value="🇦🇪">
+              🇦🇪 UAE
+            </option>
+
+            <option value="🌐">
+              🌐 Other
+            </option>
+
+          </select>
+
+
+          <button
+            id="saveScore"
+            class="button primary"
+            type="button"
+          >
+            Save Worldwide
+          </button>
+
+        </div>
+
+
+        <small>
+          Your callsign, country flag and game score
+          are submitted to the worldwide leaderboard.
+        </small>
+
+      </div>
+
+
+      <button
+        id="again"
+        class="button"
+        type="button"
+      >
+        Run Again
+      </button>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section id="leaderboard" class="section leaderboard-section">
-  <div class="section-head"><div><div class="eyebrow">LOCAL SIGNAL BOARD</div><h2>Leaderboard</h2></div><button id="clearBoard" class="text-button" type="button">Clear local scores</button></div>
-  <p class="section-copy">A lightweight local leaderboard for this device. It is intentionally not an identity or reputation system.</p>
-  <div id="leaderboardList" class="leaderboard-list" aria-live="polite"></div>
+
+<!-- =====================================================
+     WORLDWIDE LEADERBOARD
+     ===================================================== -->
+
+<section
+  id="leaderboard"
+  class="section leaderboard-section"
+>
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="eyebrow">
+        WORLDWIDE SIGNAL BOARD
+      </div>
+
+      <h2>
+        Global Leaderboard
+      </h2>
+
+    </div>
+
+
+    <button
+      id="clearBoard"
+      class="text-button"
+      type="button"
+    >
+      Clear local scores
+    </button>
+
+  </div>
+
+
+  <p
+    id="leaderboardStatus"
+    class="section-copy"
+  >
+    Loading worldwide scores…
+  </p>
+
+
+  <div
+    id="leaderboardList"
+    class="leaderboard-list"
+    aria-live="polite"
+  ></div>
+
 </section>
 
-<section id="about" class="section about">
-  <div><div class="eyebrow">THE IDEA</div><h2>Games about human signals.</h2></div>
-  <div class="about-copy"><p>Human Node Arcade is an independent project. The first game turns the idea of separating human signals from network noise into a simple reflex challenge.</p><p>Scores are game scores only. They are not proof of identity, personhood, mining activity, reputation, or eligibility for any external program.</p><p class="note">Independent project · Not an official InterLink product.</p></div>
+
+<!-- =====================================================
+     ABOUT
+     ===================================================== -->
+
+<section
+  id="about"
+  class="section about"
+>
+
+  <div>
+
+    <div class="eyebrow">
+      THE IDEA
+    </div>
+
+    <h2>
+      Games about human signals.
+    </h2>
+
+  </div>
+
+
+  <div class="about-copy">
+
+    <p>
+      Human Node Arcade is an independent project.
+      The first game turns the idea of separating
+      human signals from network noise into a simple
+      reflex challenge.
+    </p>
+
+
+    <p>
+      Scores are game scores only. They are not proof
+      of identity, personhood, reputation, eligibility,
+      or qualification for any external program.
+    </p>
+
+
+    <p class="note">
+      Independent project · Not an official InterLink product.
+    </p>
+
+  </div>
+
 </section>
+
 </main>
-<footer><span>© <span id="year"></span> Human Node Arcade</span><span>Built as an independent prototype · v1.1</span></footer>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+  <span>
+    © <span id="year"></span>
+    Human Node Arcade
+  </span>
+
+  <span>
+    Built as an independent prototype · v1.2
+  </span>
+
+</footer>
+
+
+<!-- =====================================================
+     SUPABASE
+     ===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="script.js"></script>
+
 </body>
 </html>
