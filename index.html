@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Human Node Arcade — independent games inspired by human-centric networks.">
+  <title>Human Node Arcade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#home" aria-label="Human Node Arcade home"><span class="brand-mark">H</span><span>Human Node Arcade</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#games">Games</a><a href="#about">About</a>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="eyebrow">INDEPENDENT DIGITAL PLAYGROUND</div>
+  <h1>Play the signal.<br><em>Build the network.</em></h1>
+  <p>A small game platform exploring human signals, networks and digital identity through fast, skill-based experiences.</p>
+  <div class="hero-actions"><a class="button primary" href="#games">Play Human Node Rush</a><a class="button" href="#about">How it works</a></div>
+  <div class="hero-grid" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span class="active"></span><span></span><span></span><span></span>
+  </div>
+</section>
+
+<section id="games" class="section">
+  <div class="section-head"><div><div class="eyebrow">GAME 01</div><h2>Human Node Rush</h2></div><span class="pill">30 SEC</span></div>
+  <p class="section-copy">Find the Human Signals before the noise disappears. Correct taps extend your chain; wrong taps break it.</p>
+  <div class="game-shell">
+    <div class="game-top">
+      <div><strong>HUMAN NODE RUSH</strong><small>GENESIS EDITION</small></div>
+      <div class="stats"><span>Score <b id="score">0</b></span><span>Chain <b id="chain">0</b></span><span>Time <b id="time">30</b></span></div>
+    </div>
+    <div id="arena" class="arena" aria-label="Game area">
+      <div class="core"><div></div></div>
+    </div>
+    <div id="message" class="message" aria-live="polite">Press Start Network to begin.</div>
+    <div class="game-actions">
+      <button id="start" class="button primary" type="button">Start Network</button>
+      <button id="reset" class="button" type="button">Reset</button>
+    </div>
+    <div id="result" class="result" hidden>
+      <div class="eyebrow">NETWORK COMPLETE</div>
+      <div id="finalScore" class="final-score">0</div>
+      <p id="finalText"></p>
+      <button id="again" class="button primary" type="button">Run Again</button>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <div><div class="eyebrow">THE IDEA</div><h2>Games about human signals.</h2></div>
+  <div class="about-copy">
+    <p>Human Node Arcade is an independent project. The first game turns the idea of separating human signals from network noise into a simple reflex challenge.</p>
+    <p>Scores are game scores only. They are not proof of identity, personhood, mining activity, or eligibility for any external program.</p>
+    <p class="note">Independent project · Not an official InterLink product.</p>
+  </div>
+</section>
+</main>
+
+<footer><span>© <span id="year"></span> Human Node Arcade</span><span>Built as an independent prototype</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
