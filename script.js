@@ -722,15 +722,73 @@ async function save() {
 
   saveScore.disabled = true;
   saveScore.textContent = "Saving…";
+const normalizedName = name.trim().toLowerCase();
 
-  const { error } =
-    await supabase
+const {
+  data: existingRows,
+  error: findError
+} = await supabase
+  .from("leaderboard")
+  .select("id,name,score")
+  .limit(1000);
+
+if (findError) {
+  console.error(
+    "Leaderboard lookup error:",
+    findError
+  );
+
+  saveScore.disabled = false;
+  saveScore.textContent = "Saved locally";
+
+  say(
+    "Saved locally; worldwide save failed.",
+    "bad"
+  );
+
+  setTimeout(
+    () => saveScore.textContent = "Save Worldwide",
+    1600
+  );
+
+  return;
+}
+
+const existing = existingRows.find(
+  row =>
+    String(row.name).trim().toLowerCase() ===
+    normalizedName
+);
+
+let error = null;
+
+if (existing) {
+
+  if (score > Number(existing.score)) {
+
+    const result = await supabase
       .from("leaderboard")
-      .insert({
-        name,
-        country: selectedCountry,
-        score
-      });
+      .update({
+        score,
+        country: selectedCountry
+      })
+      .eq("id", existing.id);
+
+    error = result.error;
+  }
+
+} else {
+
+  const result = await supabase
+    .from("leaderboard")
+    .insert({
+      name,
+      country: selectedCountry,
+      score
+    });
+
+  error = result.error;
+}
 
   saveScore.disabled = false;
 
