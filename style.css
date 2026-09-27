@@ -416,5 +416,43 @@ button{
 .message.bad{
   color:var(--danger);
 }
+/* HUMAN NODE ARCADE — ARENA BOOST */
+
+#arena {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(77,231,255,.28);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.03) inset,
+    0 18px 60px rgba(0,0,0,.35),
+    0 0 45px rgba(77,231,255,.08);
+}
+
+#arena::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(77,231,255,.08), transparent 34%),
+    linear-gradient(rgba(77,231,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,231,255,.035) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+  mask-image: linear-gradient(to bottom, black, transparent 95%);
+}
+
+#arena::after {
+  content: "SIGNAL FIELD";
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  z-index: 0;
+  font-size: 9px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  color: rgba(77,231,255,.38);
+  pointer-events: none;
+}
 
 /*
