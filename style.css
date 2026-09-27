@@ -454,5 +454,88 @@ button{
   color: rgba(77,231,255,.38);
   pointer-events: none;
 }
+/* HUMAN NODE ARCADE — HUD BOOST */
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  width:100%;
+}
+
+.stats span {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  min-width:0;
+  padding:10px 11px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  color:var(--muted);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.stats span b {
+  color:var(--text);
+  font-size:20px;
+  line-height:1.1;
+  letter-spacing:-.03em;
+}
+
+.stats span:nth-child(1) {
+  border-color:rgba(155,124,255,.28);
+}
+
+.stats span:nth-child(1) b {
+  color:var(--purple);
+}
+
+.stats span:nth-child(2) {
+  border-color:rgba(255,212,90,.22);
+}
+
+.stats span:nth-child(2) b {
+  color:var(--yellow);
+}
+
+.stats span:nth-child(3) {
+  border-color:rgba(255,79,163,.25);
+}
+
+.stats span:nth-child(3) b {
+  color:var(--pink);
+}
+
+.stats span:nth-child(4) {
+  border-color:rgba(77,231,255,.25);
+}
+
+.stats span:nth-child(4) b {
+  color:var(--cyan);
+}
+
+@media(max-width:700px) {
+  .stats {
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+  }
+
+  .stats span {
+    padding:11px 12px;
+  }
+
+  .stats span b {
+    font-size:22px;
+  }
+}
 
 /*
