@@ -44,6 +44,11 @@ Leaderboard data is stored locally in the player's browser.
 
 Open `index.html` directly in a browser, or serve the project directory using any simple local web server.
 
+## Live Demo
+
+**Play Human Node Arcade:**  
+https://soebaftab.github.io/human-node-arcade/
+
 ## Deployment
 
 The project is deployed as a static website through GitHub Pages.
