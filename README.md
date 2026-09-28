@@ -1,4 +1,5 @@
 # Human Node Arcade
+![Human Node Arcade Preview](./humannodearcadepreviewjpg.jpg)
 
 A mobile-first browser game prototype exploring human signals, reflex, and digital identity through a lightweight Web3-inspired experience.
 
